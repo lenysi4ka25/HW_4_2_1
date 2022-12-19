@@ -25,6 +25,7 @@ public class Main {
         DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);*/
 
 
+        System.out.println("Домашнее задание № 1");
         System.out.println(ikarus);
         System.out.println(kia);
         System.out.println(daf);
@@ -49,6 +50,12 @@ public class Main {
         volkswagen.pitStop(); volkswagen.bestLapTime(); volkswagen.maxSpeed();
         ford.pitStop(); ford.bestLapTime(); ford.maxSpeed();
         citroen.pitStop(); citroen.bestLapTime(); citroen.maxSpeed();
+        citroen.startMoving();
+        citroen.spopMoving();
+        volvo.startMoving();
+        volvo.spopMoving();
+        daf.startMoving();
+        daf.spopMoving();
        /* System.out.println(categoryB);
         System.out.println(categoryC);
         System.out.println(categoryD);*/
