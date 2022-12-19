@@ -20,9 +20,9 @@ public class Main {
                 12, 1500, "задняя, боковая");
         Truck citroen   = new Truck("Citroen", "Jump", 2, "морской порт",
                 11, 1500, "задняя, боковая");
-       /* DriverB categoryB = new DriverB ("Зайцев Константин Анатольевич", "категория В", 10, volvo);
+       DriverB categoryB = new DriverB ("Зайцев Константин Анатольевич", "категория В", 10, volvo);
         DriverC categoryC = new DriverC("Николаев Алексей Александрович", "категория С", 30, man);
-        DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);*/
+        DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);
 
 
         System.out.println("Домашнее задание № 1 и № 2");
@@ -56,8 +56,9 @@ public class Main {
         volvo.spopMoving();
         daf.startMoving();
         daf.spopMoving();
-       /* System.out.println(categoryB);
+        System.out.println("Домашнее задание №3 и №4");
+        System.out.println(categoryB);
         System.out.println(categoryC);
-        System.out.println(categoryD);*/
+        System.out.println(categoryD);
     }
 }
