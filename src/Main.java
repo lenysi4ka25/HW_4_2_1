@@ -25,7 +25,7 @@ public class Main {
         DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);*/
 
 
-        System.out.println("Домашнее задание № 1");
+        System.out.println("Домашнее задание № 1 и № 2");
         System.out.println(ikarus);
         System.out.println(kia);
         System.out.println(daf);
