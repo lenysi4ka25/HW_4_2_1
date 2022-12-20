@@ -55,20 +55,17 @@ public class Car extends Transport implements Competing {
 
     @Override
     public String pitStop() {
-        System.out.println(getMarka() + " - заехать на Пит-Стоп");
-        return null;
+        return getMarka() + " - заехать на Пит-Стоп";
     }
 
     @Override
     public String bestLapTime() {
-        System.out.println(getMarka() + " - лушее время круга");
-        return null;
+        return getMarka() + " - лушее время круга";
     }
 
     @Override
-    public int maxSpeed() {
+    public void maxSpeed() {
         System.out.println(getMarka() +  " - максимальная скорость");
-        return 0;
     }
 
     /* @Override
