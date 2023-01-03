@@ -1,14 +1,30 @@
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+        Mechanic<Car> savelii = new Mechanic<> ("Савелий", "Белов", "Рога и копыта");
+        Mechanic <Transport> ivan = new Mechanic<>("Иван", "Маслеников", "Лада");
+        Sponsor megafon = new Sponsor("Мегафон", 10_000_000);
+        Sponsor lada = new Sponsor("Лада", 9_000_000);
+
         Bus ikarus = new Bus("Икарус", "263", 20, "Санкт-Петербург - Псков",
                 100, 1870, 2005);
+        ikarus.addDriver ((new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, ikarus)));
+        ikarus.addMechanic(ivan);
+        ikarus.addSponsor(megafon);
+
         Bus kia = new Bus("Киа", "Grandbird", 11, "Санкт-Петербург - Великий Новгород",
                 40, 1200, 2014);
         Bus daf = new Bus("DAF", "MB", 6, "Санкт-Петербург - Сестрорецк",
                 54, 1200, 2009);
         Bus vektor = new Bus("Вектор", "Next", 5, "Санкт-Петербург - Кириши",
                 25, 500, 2020);
+
         Car volvo = new Car("Volvo", "S60", 2, "белый", 5, 195, "Швеция");
+        volvo.addDriver((new DriverB("Зайцев Констнатин Анатольевич", "категория В", 10, volvo)));
+        volvo.addMechanic(savelii);
+        volvo.addSponsor(megafon, lada);
+
         Car toyota = new Car("Toyota", "Camry", 3.2, "черный", 5, 210, "Россия");
         Car kiaOptima = new Car("Kia", "Optima", 2, "синий", 5, 190, "Россия");
         Car honda = new Car("Honda", "Civic", 1.6, "черный", 5, 180, "Мексика");
@@ -16,6 +32,10 @@ public class Main {
                 25, 3500, "верхняя");
         Truck volkswagen = new Truck("Volkswagen", "Crafter", 2, "Кушелевка",
                 10, 1200, "задняя, боковая");
+        volkswagen.addDriver ((new DriverC("Николаев Алексей Александрович", "категория С", 30, volkswagen)));
+        volkswagen.addMechanic(savelii);
+        volkswagen.addSponsor(lada);
+
         Truck ford = new Truck("Ford", "Transporter", 2, "Шушары",
                 12, 1500, "задняя, боковая");
         Truck citroen = new Truck("Citroen", "Jump", 2, "морской порт",
@@ -23,7 +43,6 @@ public class Main {
         DriverB categoryB = new DriverB("Зайцев Константин Анатольевич", "категория В", 10, volvo);
         DriverC categoryC = new DriverC("Николаев Алексей Александрович", "категория С", 30, man);
         DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);
-
 
         System.out.println("Домашнее задание № 1 и № 2");
         System.out.println(ikarus);
@@ -87,7 +106,33 @@ public class Main {
         passDiagnostics(ikarus, kia, daf, vektor,
                 volvo, toyota, kiaOptima, honda,
                 man, volkswagen, ford, citroen);
+        System.out.println("Домашка: введение в коллекции, списки и очереди");
+
+        List <Transport> transports = List.of(ikarus, volvo, volkswagen);
+
+        for (Transport transport : transports) {
+            printInfo(transport);
+        }
+
     }
+
+
+    private static void printInfo(Transport transport) {
+        System.out.println("Информация по автомобилю " + transport.getMarka() + " " + transport.getModel());
+        System.out.println("Водители: ");
+        for (Driver<?> driver : transport.getDrivers()) {
+            System.out.println(driver.getFullName());
+        }
+        System.out.println("Спонсоры: ");
+        for (Sponsor sponsor : transport.getSponsors()) {
+            System.out.println(sponsor.getNameSponsor());
+        }
+        System.out.println("Механики: ");
+        for (Mechanic <?> mechanic: transport.getMechanics()) {
+            System.out.println(mechanic.getName()+ " " + mechanic.getSurname() + " из  компании " + mechanic.getCompany());
+        }
+    }
+
 
     public static void passDiagnostics(Transport... transports) {
         for (Transport transport : transports) {
