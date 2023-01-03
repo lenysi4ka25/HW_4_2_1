@@ -125,7 +125,7 @@ public class Main {
         }
         System.out.println("Спонсоры: ");
         for (Sponsor sponsor : transport.getSponsors()) {
-            System.out.println(sponsor.getNameSponsor());
+            System.out.println(sponsor.getNameSponsor() + "  сумма спонсорской помощи: " + sponsor.getAmount());
         }
         System.out.println("Механики: ");
         for (Mechanic <?> mechanic: transport.getMechanics()) {
