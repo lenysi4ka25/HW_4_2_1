@@ -10,6 +10,10 @@ public abstract class Transport {
 
     private final List<Driver<?>> drivers = new ArrayList<>();
 
+    private final List<Mechanic<?>> mechanics = new ArrayList<>();
+
+    private final List<Sponsor> sponsors = new ArrayList<>();
+
     protected Transport(String marka, String model, double engineVolume) {
         this.marka = marka;
         this.model = model;
@@ -56,6 +60,15 @@ public abstract class Transport {
         drivers.add(driver);
     }
 
+    public void addMechanic(Mechanic<?> mechanic) {
+        mechanics.add(mechanic);
+    }
+
+    public void addSponsor(Sponsor sponsor) {
+        sponsors.add(sponsor);
+    }
+
+
     public abstract void startMoving();  // метод начать движение
 
     public abstract void spopMoving();   //метод закончить движение
@@ -68,4 +81,8 @@ public abstract class Transport {
     }
 
     public abstract boolean passDiagnostics();
+
+    public abstract void repair();
+
+
 }
