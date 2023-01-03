@@ -18,9 +18,9 @@ public class Main {
                 10, 1200, "задняя, боковая");
         Truck ford = new Truck("Ford", "Transporter", 2, "Шушары",
                 12, 1500, "задняя, боковая");
-        Truck citroen   = new Truck("Citroen", "Jump", 2, "морской порт",
+        Truck citroen = new Truck("Citroen", "Jump", 2, "морской порт",
                 11, 1500, "задняя, боковая");
-       DriverB categoryB = new DriverB ("Зайцев Константин Анатольевич", "категория В", 10, volvo);
+        DriverB categoryB = new DriverB("Зайцев Константин Анатольевич", "категория В", 10, volvo);
         DriverC categoryC = new DriverC("Николаев Алексей Александрович", "категория С", 30, man);
         DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);
 
@@ -38,18 +38,42 @@ public class Main {
         System.out.println(volkswagen);
         System.out.println(ford);
         System.out.println(citroen);
-        ikarus.pitStop(); ikarus.bestLapTime(); ikarus.maxSpeed();
-        kia.pitStop(); kia.bestLapTime(); kia.maxSpeed();
-        daf.pitStop(); daf.bestLapTime(); daf.maxSpeed();
-        vektor.pitStop(); vektor.bestLapTime(); vektor.maxSpeed();
-        volvo.pitStop(); volvo.bestLapTime(); volvo.maxSpeed();
-        toyota.pitStop(); toyota.bestLapTime(); toyota.maxSpeed();
-        kiaOptima.pitStop(); kiaOptima.bestLapTime(); kiaOptima.maxSpeed();
-        honda.pitStop(); honda.bestLapTime(); honda.maxSpeed();
-        man.pitStop(); man.bestLapTime(); man.maxSpeed();
-        volkswagen.pitStop(); volkswagen.bestLapTime(); volkswagen.maxSpeed();
-        ford.pitStop(); ford.bestLapTime(); ford.maxSpeed();
-        citroen.pitStop(); citroen.bestLapTime(); citroen.maxSpeed();
+        ikarus.pitStop();
+        ikarus.bestLapTime();
+        ikarus.maxSpeed();
+        kia.pitStop();
+        kia.bestLapTime();
+        kia.maxSpeed();
+        daf.pitStop();
+        daf.bestLapTime();
+        daf.maxSpeed();
+        vektor.pitStop();
+        vektor.bestLapTime();
+        vektor.maxSpeed();
+        volvo.pitStop();
+        volvo.bestLapTime();
+        volvo.maxSpeed();
+        toyota.pitStop();
+        toyota.bestLapTime();
+        toyota.maxSpeed();
+        kiaOptima.pitStop();
+        kiaOptima.bestLapTime();
+        kiaOptima.maxSpeed();
+        honda.pitStop();
+        honda.bestLapTime();
+        honda.maxSpeed();
+        man.pitStop();
+        man.bestLapTime();
+        man.maxSpeed();
+        volkswagen.pitStop();
+        volkswagen.bestLapTime();
+        volkswagen.maxSpeed();
+        ford.pitStop();
+        ford.bestLapTime();
+        ford.maxSpeed();
+        citroen.pitStop();
+        citroen.bestLapTime();
+        citroen.maxSpeed();
         citroen.startMoving();
         citroen.spopMoving();
         volvo.startMoving();
@@ -60,5 +84,24 @@ public class Main {
         System.out.println(categoryB);
         System.out.println(categoryC);
         System.out.println(categoryD);
+        passDiagnostics(ikarus, kia, daf, vektor,
+                volvo, toyota, kiaOptima, honda,
+                man, volkswagen, ford, citroen);
     }
-}
+
+    public static void passDiagnostics(Transport... transports) {
+        for (Transport transport : transports) {
+            passDiagnosticsTransport(transport);
+        }
+    }
+
+    private static void passDiagnosticsTransport(Transport transport) {
+        try {
+            if (!transport.passDiagnostics()) {
+                throw new RuntimeException("Автомобиль " + transport.getMarka()+ " " + transport.getModel() + " - не прошел диагностику!");
+            }
+        } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }

@@ -1,13 +1,13 @@
 public abstract class Driver < T extends Transport > {
 
     private final String fullName;              //ФИО водителя
-    private final String driverLicense;         //наличие водительских прав (категория вод.удост.)
+    private String driverLicense;         //наличие водительских прав (категория вод.удост.)
     private final int experience;            //стаж
     private final T car;
 
     protected Driver(String fullName, String driverLicense, int experience, T car) {
         this.fullName = fullName;
-        this.driverLicense = driverLicense;
+        setDriverLicense(driverLicense);
         this.experience = experience;
         this.car = car;
     }
@@ -33,6 +33,13 @@ public abstract class Driver < T extends Transport > {
 
     public String getDriverLicense() {
         return driverLicense;
+    }
+
+    public void setDriverLicense(String driverLicense) {
+        if (driverLicense == null) {
+            throw new IllegalArgumentException("Необходимо указать категорию водительского удостоверения!");
+        }
+        this.driverLicense = driverLicense;
     }
 
     public int getExperience() {

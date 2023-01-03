@@ -56,4 +56,6 @@ public abstract class Transport {
                 ", модель - " + model +
                 ", объем двигателя - " + engineVolume;
     }
+
+    public abstract boolean passDiagnostics();
 }

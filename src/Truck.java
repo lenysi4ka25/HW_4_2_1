@@ -53,6 +53,11 @@ public class Truck extends Transport implements Competing {
     }
 
     @Override
+    public boolean passDiagnostics() {
+        return false;
+    }
+
+    @Override
     public String pitStop() {
         System.out.println(getMarka() + " - заехать на Пит-Стоп");
         return getMarka();
