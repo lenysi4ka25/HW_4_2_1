@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport {
 
     private String marka;   //марка
@@ -5,10 +8,13 @@ public abstract class Transport {
 
     private double engineVolume;  // объем двигателя
 
+    private final List<Driver<?>> drivers = new ArrayList<>();
+
     protected Transport(String marka, String model, double engineVolume) {
         this.marka = marka;
         this.model = model;
         this.engineVolume = engineVolume;
+
     }
 
     public String getMarka() {
@@ -44,6 +50,10 @@ public abstract class Transport {
         } else {
             this.engineVolume = 1.5;
         }
+    }
+
+    public void addDriver(Driver<?> driver) {
+        drivers.add(driver);
     }
 
     public abstract void startMoving();  // метод начать движение
