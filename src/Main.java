@@ -118,19 +118,11 @@ public class Main {
 
 
     private static void printInfo(Transport transport) {
+        System.out.println(" ");
         System.out.println("Информация по автомобилю " + transport.getMarka() + " " + transport.getModel());
-        System.out.println("Водители: ");
-        for (Driver<?> driver : transport.getDrivers()) {
-            System.out.println(driver.getFullName());
-        }
-        System.out.println("Спонсоры: ");
-        for (Sponsor sponsor : transport.getSponsors()) {
-            System.out.println(sponsor.getNameSponsor() + "  сумма спонсорской помощи: " + sponsor.getAmount());
-        }
-        System.out.println("Механики: ");
-        for (Mechanic <?> mechanic: transport.getMechanics()) {
-            System.out.println(mechanic.getName()+ " " + mechanic.getSurname() + " из  компании " + mechanic.getCompany());
-        }
+        System.out.println("Водители: " + transport.getDrivers());
+        System.out.println("Спонсоры: " + transport.getSponsors());
+        System.out.println("Механики: " + transport.getMechanics());
     }
 
 
