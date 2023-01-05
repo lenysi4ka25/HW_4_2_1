@@ -97,6 +97,4 @@ public abstract class Transport {
     public abstract boolean passDiagnostics();
 
     public abstract void repair();
-
-
 }

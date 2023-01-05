@@ -110,10 +110,16 @@ public class Main {
 
         List <Transport> transports = List.of(ikarus, volvo, volkswagen);
 
+        System.out.println("Домашка 'станция техобслуживания'");
+        ServiceStation serviceStation = new ServiceStation();
+        serviceStation.addCar(volvo);
+        serviceStation.addTruck(volkswagen);
+        serviceStation.passDiagnostics();
+        serviceStation.passDiagnostics();
+
         for (Transport transport : transports) {
             printInfo(transport);
         }
-
     }
 
 
