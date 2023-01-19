@@ -1,15 +1,16 @@
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Mechanic<Car> savelii = new Mechanic<> ("Савелий", "Белов", "Рога и копыта");
-        Mechanic <Transport> ivan = new Mechanic<>("Иван", "Маслеников", "Лада");
+
+        Mechanic<Car> savelii = new Mechanic<>("Савелий", "Белов", "Рога и копыта");
+        Mechanic<Transport> ivan = new Mechanic<>("Иван", "Маслеников", "Лада");
         Sponsor megafon = new Sponsor("Мегафон", 10_000_000);
         Sponsor lada = new Sponsor("Лада", 9_000_000);
 
         Bus ikarus = new Bus("Икарус", "263", 20, "Санкт-Петербург - Псков",
                 100, 1870, 2005);
-        ikarus.addDriver ((new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, ikarus)));
+        ikarus.addDriver((new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, ikarus)));
         ikarus.addMechanic(ivan);
         ikarus.addSponsor(megafon);
 
@@ -32,7 +33,7 @@ public class Main {
                 25, 3500, "верхняя");
         Truck volkswagen = new Truck("Volkswagen", "Crafter", 2, "Кушелевка",
                 10, 1200, "задняя, боковая");
-        volkswagen.addDriver ((new DriverC("Николаев Алексей Александрович", "категория С", 30, volkswagen)));
+        volkswagen.addDriver((new DriverC("Николаев Алексей Александрович", "категория С", 30, volkswagen)));
         volkswagen.addMechanic(savelii);
         volkswagen.addSponsor(lada);
 
@@ -43,6 +44,16 @@ public class Main {
         DriverB categoryB = new DriverB("Зайцев Константин Анатольевич", "категория В", 10, volvo);
         DriverC categoryC = new DriverC("Николаев Алексей Александрович", "категория С", 30, man);
         DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);
+        DriverD category = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);
+
+        HashSet<Driver> drivers = new HashSet<>();
+        Iterator iterator = drivers.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+            if( "TWO".equals(drivers)) {
+                iterator.remove();
+            }
+        }
 
         System.out.println("Домашнее задание № 1 и № 2");
         System.out.println(ikarus);
@@ -108,7 +119,7 @@ public class Main {
                 man, volkswagen, ford, citroen);
         System.out.println("Домашка: введение в коллекции, списки и очереди");
 
-        List <Transport> transports = List.of(ikarus, volvo, volkswagen);
+        List<Transport> transports = List.of(ikarus, volvo, volkswagen);
 
         System.out.println("Домашка 'станция техобслуживания'");
         ServiceStation serviceStation = new ServiceStation();
@@ -138,13 +149,14 @@ public class Main {
         }
     }
 
+
     private static void passDiagnosticsTransport(Transport transport) {
         try {
             if (!transport.passDiagnostics()) {
-                throw new RuntimeException("Автомобиль " + transport.getMarka()+ " " + transport.getModel() + " - не прошел диагностику!");
+                throw new RuntimeException("Автомобиль " + transport.getMarka() + " " + transport.getModel() + " - не прошел диагностику!");
             }
         } catch (RuntimeException e) {
-                System.out.println(e.getMessage());
-            }
+            System.out.println(e.getMessage());
         }
     }
+}

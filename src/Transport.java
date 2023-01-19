@@ -7,7 +7,7 @@ public abstract class Transport {
 
     private double engineVolume;  // объем двигателя
 
-    private final List<Driver<?>> drivers = new ArrayList<>();
+    private final Set<Driver<?>> drivers = new HashSet<>();
 
     private final Set<Mechanic<?>> mechanics = new HashSet<>();
 
@@ -56,7 +56,7 @@ public abstract class Transport {
     }
 
 
-    public List<Driver<?>> getDrivers() {
+    public Set<Driver<?>> getDrivers() {
         return drivers;
     }
 
