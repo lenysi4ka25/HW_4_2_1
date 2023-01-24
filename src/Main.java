@@ -46,6 +46,7 @@ public class Main {
         DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);
         DriverD category = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);
 
+        System.out.println("Итераторы");
         HashSet<Driver> drivers = new HashSet<>();
         Iterator iterator = drivers.iterator();
         while (iterator.hasNext()) {
@@ -54,6 +55,7 @@ public class Main {
                 iterator.remove();
             }
         }
+
 
         System.out.println("Домашнее задание № 1 и № 2");
         System.out.println(ikarus);
