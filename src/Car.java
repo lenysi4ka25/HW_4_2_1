@@ -36,12 +36,12 @@ public class Car extends Transport implements Competing {
 
     @Override
     public void startMoving() {
-
+        System.out.println(getMarka() + " - начать движение");
     }
 
     @Override
     public void spopMoving() {
-
+        System.out.println(getMarka() + " - закончить движение");
     }
 
     @Override
@@ -54,20 +54,29 @@ public class Car extends Transport implements Competing {
     }
 
     @Override
-    public String[] pitStop() {
-        System.out.println(getMarka() + " - заехать на Пит-Стоп");
-        return new String[0];
+    public boolean passDiagnostics() {
+        return false;
     }
 
     @Override
-    public String[] bestLapTime() {
-        System.out.println(getMarka() + " - лушее время круга");
-        return new String[0];
+    public void repair() {
+        System.out.println("Машина " + getMarka() + " " + getModel() + " отремонтированная!");
     }
 
     @Override
-    public int[] maxSpeed() {
+    public String pitStop() {
+        return getMarka() + " - заехать на Пит-Стоп";
+    }
+
+    @Override
+    public String bestLapTime() {
+        return getMarka() + " - лушее время круга";
+    }
+
+    @Override
+    public void maxSpeed() {
         System.out.println(getMarka() +  " - максимальная скорость");
-        return new int[0];
     }
+
+
 }
